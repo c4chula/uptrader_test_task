@@ -1,0 +1,21 @@
+{% extends "menu/base.html"%}
+{% load menu_tags %}
+
+{% block content %}
+<div class="d-grid gap-3">
+    <div class="dropdown p-3">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        {{ current_category }} 
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        {% for category in categories %}
+        {% if not category.name == title %}
+            <li><a class="dropdown-item" href="{% url 'menu' category.name %}">{{ category.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% draw_menu current_category %}
+</div>
+
+{% endblock content %}

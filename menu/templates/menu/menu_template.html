@@ -1,0 +1,22 @@
+{% if dishes %}
+<table class="table p-1">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Cost RUB</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for dish in dishes %}
+    <tr>
+      <td>{{dish.name}}</td>
+      <td>{{dish.description}}</td>
+      <td>{{dish.cost}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+  <h1 class="p-3">К сожалению не было найдено ни одного блюда</h1>
+{% endif %}
